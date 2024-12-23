@@ -1,0 +1,105 @@
+header {
+  background-color: #2a4f94;
+  padding: 35px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+.header {
+  text-align: center;
+  width: 100%;
+}
+#logo {
+  background-color: #fff;
+  border-radius: 120px;
+  width: 150px;
+}
+.headers {
+  display: block;
+  padding: 50px;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+.nav {
+  /* background-color: rgb(150, 179, 230); */
+  background-color: lavender;
+  /* box-shadow: 0 0 0.3em 0.1em rgb(127, 127, 137); */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 3px;
+  text-align: center;
+}
+.nav li {
+  display: inline;
+}
+.nav a {
+  display: inline-block;
+  padding: 10px;
+  color: #2a4f94;
+  text-align: center;
+  text-decoration: none;
+}
+.nav a:hover {
+  background-color: white;
+}
+.signin {
+  /* margin-left: auto; */
+  float: right;
+}
+#loggedInAs {
+  color: white;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+#loggedInAs:hover {
+  color: rgb(210, 210, 210);
+}
+.flashes {
+  display: flex;
+  justify-content: center;
+}
+.flash {
+  margin: 20px;
+  color: white;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.flash.success {
+  background-color: green;
+}
+.flash.error {
+  background-color: red;
+}
+#page-content {
+  margin-left: 20px;
+  justify-content: center;
+  display: flex;
+}
+#center-div {
+  flex-grow: 1;
+  margin: 20px 100px;
+}
+article {
+  margin-left: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+footer {
+  background-color: lavender;
+  color: rgb(125, 125, 141);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+table td,
+th {
+  padding: 20px;
+}
+#headerTable td{
+  padding: 0px;
+}

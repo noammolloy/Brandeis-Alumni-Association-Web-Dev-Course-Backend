@@ -1,0 +1,85 @@
+<h1>Event Information for <%= event.title %></h1>
+<table>
+  <tr>
+    <td>
+      <table class="table">
+        <tr>
+          <th>Title</th>
+          <td><%= event.title %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td><%= event.description %></td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td><%= event.location %></td>
+        </tr>
+        <tr>
+          <th>Start Date</th>
+          <td><%= event.startDate.toISOString().split('T')[0] %></td>
+        </tr>
+        <tr>
+          <th>End Date</th>
+          <td><%= event.endDate.toISOString().split('T')[0] %></td>
+        </tr>
+        <tr>
+          <th>Online?</th>
+          <% if (event.isOnline)  {%>
+            <td>Yes</td>
+            <% } else { %>
+              <td>No</td>
+              <% } %>
+        </tr>
+        <tr>
+          <th>Organizer</th>
+          <td><%= organizer.name %> | <%= organizer.email %></td>
+        </tr>
+        
+        
+      </table>
+    </td>
+    <td>
+      <% if (currentUser && !attendees.some(attendee => attendee._id.equals(currentUser._id)) && !currentUser._id.equals(event.organizer._id)) { %>
+      <h5>Would you like to attend this event?</h5>
+      <a href="<%= `/events/${event._id}/${currentUser._id}/add` %>" class="btn btn-info">Register</a>
+      <% } %>
+      <% if (currentUser && (attendees.some(attendee => attendee._id.equals(currentUser._id)) || currentUser.isAdmin)) { %>
+      <h5>Attendees</h5>
+      <ul>
+        <% attendees.forEach(attendee => { %>
+          <li><%= attendee.name %> | <%= attendee.email %>
+            <% if(currentUser && (currentUser._id.equals(attendee._id) || currentUser._id.equals(event.organizer._id) || currentUser.isAdmin)) { %>
+            <a href="<%= `/events/${event._id}/${attendee._id}/remove` %>" class="btn btn-info">Unregister</a>
+            <% } %>
+          </li>
+        <% }); %>
+      <% } %>
+      </ul>
+      <% if (attendees.length == 0) { %>
+        <p>&nbsp;&nbsp;&nbsp;No attendees registered</p>
+      <% } %>
+    </td>
+  </tr>
+</table>
+
+
+<div>
+  <a href="/events" class="btn btn-primary">View all events</a>
+</div>
+<% if (currentUser && (currentUser._id.equals(event.organizer) || currentUser.isAdmin)) { %>
+<div>
+  <a href="<%=`/events/${event._id}/edit`%>" class="btn btn-primary">Edit Event Details</a>
+</div>
+<% } %>
+<% if (currentUser && currentUser.isAdmin) { %>
+<div>
+  <a
+    href="<%= `/events/${event._id}/delete?_method=DELETE` %>"
+    onclick="return confirm('Are you sure you want to delete this record?')"
+    class="btn btn-primary"
+    >Delete</a
+  >
+</div>
+<% } %>
+<br><br><br><br>

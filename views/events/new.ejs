@@ -1,0 +1,68 @@
+<div class="data-form">
+  <form action="/events/create" method="POST">
+    <h2>Create a new event:</h2>
+    <label for="inputTitle">Title</label>
+    <input
+      type="text"
+      name="title"
+      id="inputTitle"
+      placeholder="Title"
+      required
+      autofocus
+    />
+    <br>
+    <label for="inputDescription">Description</label>
+    <input
+      type="text"
+      name="description"
+      id="inputDescription"
+      placeholder="Description"
+      required
+    />
+    <br>
+    <label for="inputLocation">Location</label>
+    <input
+      type="text"
+      name="location"
+      id="inputLocation"
+      placeholder="Location"
+      required
+    />
+    <br>
+    <label for="inputStartDate">Start Date</label>
+    <input
+      type="date"
+      name="startDate"
+      id="inputStartDate"
+      required
+    />
+    <br>
+    <label for="inputEndDate">End Date</label>
+    <input
+      type="date"
+      name="endDate"
+      id="inputEndDate"
+      required
+    />
+    <br>
+    <label for="inputIsOnline">Is the event online</label>
+    <input
+      type="checkbox"
+      name="isOnline"
+      id="inputIsOnline"
+    />
+    <br>
+    <label for="inputRegistrationLink">Registration Link</label>
+    <input
+      type="text"
+      name="registrationLink"
+      id="inputRegistrationLink"
+      placeholder="Link here"
+    />
+    <br><br>
+    <p>You will be the Organizer of this event</p>
+
+    <br>
+    <button type="submit">Create Event</button>
+  </form>
+</div>
